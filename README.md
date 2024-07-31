@@ -46,7 +46,7 @@ All dependencies are listed in the `requirements.txt` file.
    
 4. **Run tests**
 
-   To run tests, navigate to the test_hostinger.py file and use the following command in the terminal:
+   To run tests, use the following command in the terminal:
 
    ```sh
    pytest
