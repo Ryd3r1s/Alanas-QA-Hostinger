@@ -49,7 +49,7 @@ All dependencies are listed in the `requirements.txt` file.
    To run tests, use the following command in the terminal:
 
    ```sh
-   pytest
+   pytest -s
    ```
 
    **Authors**
