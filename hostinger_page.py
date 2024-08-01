@@ -6,7 +6,7 @@ from faker import Faker
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from hostinger_helpers import fill_out_field, click_button, switch_to_iframe, switch_to_default_content, \
-    wait_to_be_visible, click_element
+    wait_to_be_visible, click_element, select_random_option
 from hostinger_locators import HOSTINGERLocators
 
 
@@ -46,14 +46,18 @@ def initiate_24_months_plan_purchase(driver: WebDriver) -> None:
     random_last_name = fake.last_name()
     fill_out_field(driver, HOSTINGERLocators.LAST_NAME_INPUT, random_last_name)
 
+    click_button(driver, HOSTINGERLocators.TELEPHONY_DROPDOWN)
+
+    select_random_option(driver, HOSTINGERLocators.DROPDOWN_OPTIONS)
+
+    phone_number = ''.join(random.choices(string.digits, k=8))
+    fill_out_field(driver, HOSTINGERLocators.PHONE_NUMBER_INPUT, phone_number)
+
     random_city = fake.city()
     fill_out_field(driver, HOSTINGERLocators.CITY_INPUT, random_city)
 
     random_street = fake.word()
     fill_out_field(driver, HOSTINGERLocators.STREET_INPUT, random_street)
-
-    phone_number = '370' + ''.join(random.choices(string.digits, k=8))
-    fill_out_field(driver, HOSTINGERLocators.PHONE_NUMBER_INPUT, phone_number)
 
     random_zipcode = fake.zipcode()
     fill_out_field(driver, HOSTINGERLocators.ZIPCODE_INPUT, random_zipcode)
@@ -101,4 +105,3 @@ def initiate_24_months_plan_purchase(driver: WebDriver) -> None:
     finally:
         # Ensure the browser is closed after the test
         driver.quit()
-

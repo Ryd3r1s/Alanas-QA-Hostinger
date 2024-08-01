@@ -11,7 +11,7 @@ class HOSTINGERLocators:
     LAST_NAME_INPUT = (By.XPATH, "//div[@class='h-form-field-label' and text()='Last name (optional)']/following-sibling::input")
     CITY_INPUT = (By.XPATH, "//div[@class='h-form-field-label' and text()='City (optional)']/following-sibling::input")
     STREET_INPUT = (By.XPATH, "//div[@class='h-form-field-label' and text()='Street address (optional)']/following-sibling::input")
-    PHONE_NUMBER_INPUT = (By.XPATH, "//div[@class='h-form-field-label' and text()='Phone number (optional)']/following-sibling::input")
+    PHONE_NUMBER_INPUT = (By.XPATH, "(//div[@class='h-form-field-label' and text()='00000000']/following-sibling::input)[1]")
     ZIPCODE_INPUT = (By.XPATH, "//div[@class='h-form-field-label' and text()='ZIP code (optional)']/following-sibling::input")
     NAME_ON_CARD_INPUT = (By.XPATH, "//input[@id='cardholdername' and @placeholder='Name on card']")
     FIRST_IFRAME = (By.XPATH, "(//iframe[contains(@class, 'processout-field-cc-iframe')])[1]")
@@ -22,5 +22,10 @@ class HOSTINGERLocators:
     CVC_INPUT = (By.XPATH, "//input[@type='tel' and @placeholder='CVC code']")
     ERROR_MESSAGE = (By.XPATH, "//div[contains(@class, 'error-message invalid') and text()='The card number is invalid.']")
     SUBMIT_BUTTON = (By.XPATH, "//button[@id='hcart-submit-payment']")
+    TELEPHONY_DROPDOWN = (By.XPATH, "(//input[@class='h-input__input' and @type='text' and @readonly and @password='false'])[1]")
+    DROPDOWN_OPTIONS = (By.XPATH, "//div[@class='h-select__option']")
+    COUNTRY_DROPDOWN = (By.XPATH, "(//input[@class='h-input__input' and @type='text' and @readonly and @placeholder=''])[3]")
+
+
 
 

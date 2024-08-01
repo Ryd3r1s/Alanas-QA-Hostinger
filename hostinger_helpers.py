@@ -4,6 +4,8 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+import random
+from selenium.webdriver.common.by import By
 
 
 def wait_to_be_visible(driver: WebDriver, locator: tuple[str, str], timeout: int = 30) -> WebElement:
@@ -91,3 +93,20 @@ def switch_to_default_content(driver: WebDriver):
     :return: None
     """
     driver.switch_to.default_content()
+
+
+def select_random_option(driver, locator):
+    """
+    Selects a random option from a dropdown element specified by the locator.
+
+    :param driver: The WebDriver instance used to interact with the web page.
+    :param locator: A tuple containing the By strategy and the XPath for the dropdown options.
+    """
+    by, xpath = locator
+
+    # Find all options using the locator
+    options = driver.find_elements(by, xpath)
+
+    # Select a random option and click it
+    random_option = random.choice(options)
+    random_option.click()
